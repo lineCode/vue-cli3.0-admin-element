@@ -59,3 +59,5 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static'
 }
+
+4. 切换用户之后久的路由未清除,暂未解决
