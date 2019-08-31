@@ -1,0 +1,60 @@
+[
+    {
+        "username": "admin",
+        "password": "admin",
+        "limit": [
+            {
+                "icon": "&#xe640;",
+                "iconSize": "24",
+                "level": 1,
+                "sort": 1,
+                "state": 1,
+                "link": "/Home",
+                "linkName": "Home",
+                "name": "首页",
+                "children": []
+            },
+            {
+                "icon": "&#xe640;",
+                "iconSize": "24",
+                "level": 1,
+                "sort": 12,
+                "state": 1,
+                "link": "/System",
+                "linkName": "System",
+                "name": "系统设置",
+                "children": [
+                    {
+                        "icon": "&#xe640;",
+                        "iconSize": "20",
+                        "level": 2,
+                        "sort": 1,
+                        "state": 1,
+                        "link": "/System/User",
+                        "linkName": "User",
+                        "name": "用户管理",
+                        "parentName": "系统设置",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "123",
+        "password": "123",
+        "limit": [
+            {
+                "icon": "&#xe640;",
+                "iconSize": "24",
+                "level": 1,
+                "sort": 1,
+                "state": 1,
+                "link": "/Home",
+                "linkName": "Home",
+                "name": "首页",
+                "children": []
+            }
+        ]
+    }
+]
