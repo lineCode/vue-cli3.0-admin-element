@@ -47,7 +47,7 @@ let self = {}
 import limit from '../../../public/limit/limit.json'
 import { mapState, mapActions } from 'vuex'
 import { Notification } from 'element-ui';
-import router from '@/router.js'
+import router, { resetRouter } from '@/router.js'
 import unit from '@/unit/unit.js'
 export default {
 	name: 'login',
@@ -135,12 +135,13 @@ export default {
 			self.$refs[formName].validate((valid) => {
 				if (valid) {
 					let obj = limit.filter(a => a.username === self.formLogin.user)[0]
-					// 使用路由按需加载(官方推荐)
+					// 路由懒加载
 					const _import = (r) => file => require.ensure([], () => file(require(`@/views${ r }.vue`)))
 					let firstR = {}
 					if (obj.password === self.formLogin.pass) {
+						resetRouter()
 						self.CHANGE_LIMIT_ACT([]) // 清空路由表
-						firstR = self.filterFirstRoute(obj.limit) // 拿到首位路由
+						self.CHANGE_CLICKROUTE_ACT([]) // 清空点击过的列表
 						self.CHANGE_LIMIT_ACT(obj.limit) // 存放路由表
 						self.CHANGE_FORMlOGIN_ACT(self.formLogin) // 存放登录字段
 						self.CHANGE_TOKEN_ACT({ token: 'zhuanghongliang' }) // 存放token
@@ -154,7 +155,7 @@ export default {
 								component: _import('/Home'),
 								mtea: {
 									parentName: '',
-									name: '首页',
+									name: '',
 									requiresAuth: true,
 								},
 								children: routers
@@ -162,11 +163,13 @@ export default {
 							{ path: '*', redirect: '/NoFind/NoFind' },
 						]
 						router.addRoutes(allRouters)
-
-						self.$router.push({ // 跳转到首位路由
-							path: firstR.link
+						firstR = self.filterFirstRoute(obj.limit) // 拿到首位路由
+						self.$nextTick(() => {
+							self.$router.push({ // 跳转到首位路由
+								path: firstR.link
+							})
+							self.CHANGE_CLICKROUTE_ACT({ link: firstR.link, name: firstR.name })
 						})
-						self.CHANGE_CLICKROUTE_ACT({ link: firstR.link, name: firstR.name })
 					} else {
 						Notification.error({
 							title: '错误',
@@ -204,6 +207,7 @@ export default {
 			text-align: center;
 			font-size: 20px;
 			font-weight: 600;
+			margin: 12px 0;
 		}
 		// 表单样式
 		.form-box{

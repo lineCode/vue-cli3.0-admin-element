@@ -9,8 +9,8 @@
                 "level": 1,
                 "sort": 1,
                 "state": 1,
-                "link": "/Home",
-                "linkName": "Home",
+                "link": "/Index/Index",
+                "linkName": "Index",
                 "name": "首页",
                 "children": []
             },
@@ -50,8 +50,8 @@
                 "level": 1,
                 "sort": 1,
                 "state": 1,
-                "link": "/Home",
-                "linkName": "Home",
+                "link": "/Index/Index",
+                "linkName": "Index",
                 "name": "首页",
                 "children": []
             }

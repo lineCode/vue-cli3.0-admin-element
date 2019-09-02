@@ -41,12 +41,16 @@ export default {
 		},
 		// 改变点击列表
 		CHANGE_CLICKROUTE_MUT (state, value) {
-			state.clickRoute = state.clickRoute.concat(value)
-			let obj = {}
-			state.clickRoute = state.clickRoute.reduce((cur,next) => {
-				obj[next.link] ? "" : obj[next.link] = true && cur.push(next)
-				return cur
-			},[])
+			if (value instanceof Array) {
+				state.clickRoute = value
+			} else {
+				state.clickRoute = state.clickRoute.concat(value)
+				let obj = {}
+				state.clickRoute = state.clickRoute.reduce((cur,next) => {
+					obj[next.link] ? "" : obj[next.link] = true && cur.push(next)
+					return cur
+				},[])
+			}
 		}
 	},
 	actions: {

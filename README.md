@@ -60,4 +60,9 @@ module.exports = {
   assetsDir: 'static'
 }
 
-4. 切换用户之后久的路由未清除,暂未解决
+4. 切换用户之后久的路由未清除
+
+export function resetRouter () {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
+}

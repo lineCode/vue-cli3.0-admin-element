@@ -42,7 +42,7 @@ export default {
 		justify-content: space-between;
 		height: 100%;
 		.header-title{
-			line-height: 60px;
+			line-height: 50px;
 			font-weight: 600;
 		}
 		.header-move{

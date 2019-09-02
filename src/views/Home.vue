@@ -5,23 +5,20 @@
         <Aside :menus="menus"></Aside>
       </el-aside>
       <el-container class="main-box">
-      <el-header class="header-box">
-        <Header></Header>
-      </el-header>
-        <el-container>
-          <div class="tag-box">
-            <span class="tag-list" v-for="(e, i) in base.clickRoute" :key="i" :index="i" @click.stop="clickTags(e)">
-              {{ e.name }}
-              <i v-if="i !== 0" class="close-icon el-icon-close" @click.stop="clickClose(e, i)"></i>
-            </span>
-          </div>
-          <el-main>
-            <router-view/>
-          </el-main>
-          <el-footer>
-            ©2019 xxxxxx号
-          </el-footer>
-        </el-container>
+        <el-header class="header-box">
+          <Header></Header>
+        </el-header>
+        <div class="tag-box">
+          <span :class="['tag-list', e.link === base.nowRoute ? 'active' : '']" v-for="(e, i) in base.clickRoute" :key="i" :index="i" @click.stop="clickTags(e)">
+            {{ e.name }}
+            <i v-if="i !== 0" class="close-icon el-icon-close" @click.stop="clickClose(e, i)"></i>
+          </span>
+        </div>
+        <el-main>
+          <transition name="slide-fade" mode="out-in">
+            <router-view />
+          </transition>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -32,7 +29,6 @@ let self = {}
 import Header from '@/components/Layout/Header' // 导入头部
 import Aside from '@/components/Layout/Aside' // 导入 侧边栏
 import { mapState } from 'vuex'
-// import api from '@/api/api'
 export default {
   name: 'home',
   components: {
@@ -48,12 +44,14 @@ export default {
   computed: {
     ...mapState([
       'base'
-    ])
+    ]),
+    key () {
+      return this.$route.path
+    }
   },
   mounted () {
     self = this
     self.$set(self, 'menus', self.base.limit)
-    // api.queryUser({})
   },
   methods: {
     clickTags (e) {
@@ -93,6 +91,9 @@ export default {
 }
 .el-header{
   background: #fff;
+  height: 50px !important;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08) !important;
+  z-index: 1000 !important;
 }
 .el-aside{
   background-color: #383D40;
@@ -101,12 +102,12 @@ export default {
   padding: 6px 20px;
   background: #fff;
   border-top: 1px solid #f4f4f4;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid rgba(0,21,41,.08);
   .tag-list{
     display: inline-block;
     font-size: 14px;
-    height: 32px;
-    line-height: 32px;
+    height: 28px;
+    line-height: 28px;
     padding: 0 10px;
     background-color: #ecf5ff;
     border: 1px solid #d9ecff;
@@ -125,6 +126,11 @@ export default {
         font-size: 14px;
       }
     }
+    &.active{
+      color: #fff;
+      border-color: #E6A23C;
+      background: #E6A23C;
+    }
   }
   .tag-list:first-child{
     margin-left: 0;
@@ -135,5 +141,20 @@ export default {
   line-height: 40px;
   text-align: center;
   font-size: 12px;
+}
+.slide-fade-enter-active {
+  transition: all .8s cubic-bezier(.55,0,.1,1);
+}
+.slide-fade-enter {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(.55,0,.1,1);
+}
+.slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

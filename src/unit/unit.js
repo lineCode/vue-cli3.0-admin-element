@@ -33,11 +33,11 @@ export default {
 	 * @param {*} pary 
 	 */
 	filterRouter (list, pary) {
-		// 使用路由按需加载(官方推荐)
+		// 路由懒加载
 		const _import = (r) => file => require.ensure([], () => file(require(`@/views${ r }.vue`)))
 		list.forEach(e => {
 			if (!e.children.length) {
-				if (e.link !== '/' && e.link !== '/Home') {
+				if (e.link !== '/') {
 					pary.push({
 						path: e.link,
 						name: e.linkName,

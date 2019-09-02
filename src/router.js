@@ -5,7 +5,7 @@ import store from './store'
 import unit from '@/unit/unit.js'
 Vue.use(Router)
 
-// 使用路由按需加载(官方推荐)
+// 路由懒加载
 const _import = (r) => file => require.ensure([], () => file(require(`@/views${ r }.vue`)))
 
 // 初始路由
@@ -21,17 +21,21 @@ const initRouters = [
 		component: _import('/NoFind/NoFind')
   }
 ]
-
-// 配置路由
-var router = new Router({
-  routes: initRouters,
-  // mode: 'history'
+// 添加路由方法
+const createRouter = () => new Router({
+  // mode: 'history',
+  routes: initRouters
 })
+
+// 添加初始路由
+const router = createRouter()
+
 // 解决点击同一个路由出现错误的情况
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
+
 // 进入路由之前 动态添加路由
 let isReplace = true // 控制刷新
 router.beforeEach((to, from, next) => {
@@ -65,7 +69,7 @@ router.beforeEach((to, from, next) => {
               component: _import('/Home'),
               mtea: {
                 parentName: '',
-                name: '首页',
+                name: '',
                 requiresAuth: true,
               },
               children: routers
@@ -88,4 +92,11 @@ router.beforeEach((to, from, next) => {
   store.dispatch('CHANGE_NOWROUTE_ACT', to.path)
   store.dispatch('CHANGE_LASTROUTE_ACT', from.path)
 })
+
+// 重置路由
+export function resetRouter () {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
+}
+
 export default router
