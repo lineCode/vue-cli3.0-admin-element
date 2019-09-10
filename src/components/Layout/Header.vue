@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 #header{
 	height: 100%;
 	.header-box{

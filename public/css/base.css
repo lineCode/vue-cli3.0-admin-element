@@ -264,3 +264,16 @@ li{
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.box-top{
+    margin-top: 20px;
+}
+.box-top:first-child{
+    margin-top: 0;
+}
+.box-bottom{
+    margin-bottom: 20px;
+}
+.box-bottom:last-child{
+    margin-bottom: 0;
+}

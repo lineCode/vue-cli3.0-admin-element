@@ -82,15 +82,15 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @logoColor: #1CB2CB;
 @whiteColor: #ffffff;
 #aside{
 	height: 100%;
 	.aside-logo{
 		width: 100%;
-		height: 60px;
-		line-height: 60px;
+		height: 50px;
+		line-height: 50px;
 		text-align: center;
 		background: @logoColor;
 		color: @whiteColor;
