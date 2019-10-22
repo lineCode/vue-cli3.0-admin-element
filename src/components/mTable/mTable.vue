@@ -2,7 +2,7 @@
   <div class="mTable">
     <!-- 表格 -->
     <div ref="table" class="table-box box-top">
-      <el-table :data="list.data" :border="list.border" :height="tableH">
+      <el-table :data="list.data" :border="list.border" :height="tableH" @selection-change="handleSelectionChange">>
         <!-- 展开隐藏信息 -->
         <el-table-column v-if="list.expand.show" type="expand">
           <template slot-scope="scope">
@@ -112,6 +112,9 @@ export default {
     // 动态修改表格高度
 		setTableH () {
       this.tableH = this.$refs['table'].offsetHeight
+    },
+    handleSelectionChange (val) {
+      this.$emit('handleSelectionChange', val)
     },
     // 页量改变
     handleSizeChange (val) {

@@ -1,60 +1,69 @@
-[
-    {
-        "username": "admin",
-        "password": "admin",
-        "limit": [
-            {
-                "icon": "&#xe640;",
-                "iconSize": "24",
-                "level": 1,
-                "sort": 1,
-                "state": 1,
-                "link": "/Index/Index",
-                "linkName": "Index",
-                "name": "首页",
-                "children": []
-            },
-            {
-                "icon": "&#xe640;",
-                "iconSize": "24",
-                "level": 1,
-                "sort": 12,
-                "state": 1,
-                "link": "/System",
-                "linkName": "System",
-                "name": "系统设置",
-                "children": [
-                    {
-                        "icon": "&#xe640;",
-                        "iconSize": "20",
-                        "level": 2,
-                        "sort": 1,
-                        "state": 1,
-                        "link": "/System/User",
-                        "linkName": "User",
-                        "name": "用户管理",
-                        "parentName": "系统设置",
-                        "children": []
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "username": "123",
-        "password": "123",
-        "limit": [
-            {
-                "icon": "&#xe640;",
-                "iconSize": "24",
-                "level": 1,
-                "sort": 1,
-                "state": 1,
-                "link": "/Index/Index",
-                "linkName": "Index",
-                "name": "首页",
-                "children": []
-            }
-        ]
-    }
-]
+[{
+    "icon": "&#xe640;",
+    "iconSize": "24",
+    "level": 1,
+    "sort": 1,
+    "state": 1,
+    "link": "/Index/Index",
+    "linkName": "Index",
+    "name": "首页",
+    "children": []
+},
+{
+    "icon": "&#xe640;",
+    "iconSize": "24",
+    "level": 1,
+    "sort": 2,
+    "state": 1,
+    "link": "/Suggest/Suggest",
+    "linkName": "Suggest",
+    "name": "建议与诉求",
+    "children": []
+},
+{
+    "icon": "&#xe640;",
+    "iconSize": "24",
+    "level": 1,
+    "sort": 3,
+    "state": 1,
+    "link": "/Media/Media",
+    "linkName": "Media",
+    "name": "采集照片",
+    "children": []
+},
+{
+    "icon": "&#xe640;",
+    "iconSize": "24",
+    "level": 1,
+    "sort": 12,
+    "state": 1,
+    "link": "/System",
+    "linkName": "System",
+    "name": "系统设置",
+    "children": [
+        {
+            "icon": "&#xe640;",
+            "iconSize": "20",
+            "level": 2,
+            "sort": 1,
+            "state": 1,
+            "link": "/System/User/User",
+            "linkName": "User",
+            "name": "用户管理",
+            "parentName": "系统设置",
+            "children": []
+        },
+        {
+            "icon": "&#xe640;",
+            "iconSize": "20",
+            "level": 2,
+            "sort": 2,
+            "state": 1,
+            "link": "/System/Log/Log",
+            "linkName": "Log",
+            "name": "系统日志",
+            "parentName": "系统设置",
+            "children": []
+        }
+    ]
+}]

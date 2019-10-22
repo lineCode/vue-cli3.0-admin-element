@@ -26,7 +26,14 @@ export default {
 	defaultParam (ops, def) {
 		return ops && ops !== '' ? ops : def
 	},
-	
+	/**
+	 * 验证手机号码
+	 * @param {手机号码} param 
+	 */
+	telRegst (param) {
+		let tlReg = /^1[3456789]\d{9}$/
+		return tlReg.test(param)
+	},
 	/**
 	 * 筛选路由表
 	 * @param {*} list 

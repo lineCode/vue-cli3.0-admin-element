@@ -277,3 +277,25 @@ li{
 .box-bottom:last-child{
     margin-bottom: 0;
 }
+
+.innerDrawer-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.innerDrawer-box .demo-drawer__body{
+    flex: 1;
+}
+.innerDrawer-box .demo-drawer__footer{
+    display: flex;
+}
+.innerDrawer-box .demo-drawer__footer .el-button{
+    flex: 1;
+}
+.tree-box .el-checkbox:last-of-type{
+    margin-right: 8px !important;
+}

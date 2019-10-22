@@ -44,11 +44,11 @@
 
 <script>
 let self = {}
-import limit from '../../../public/limit/limit.json'
+import ThisJs from './Login'
 import { mapState, mapActions } from 'vuex'
-import { Notification } from 'element-ui';
-import router, { resetRouter } from '@/router.js'
-import unit from '@/unit/unit.js'
+// import { Notification } from 'element-ui';
+// import router, { resetRouter } from '@/router.js'
+// import unit from '@/unit/unit.js'
 export default {
 	name: 'login',
 	data () {
@@ -89,6 +89,9 @@ export default {
 			'base'
 		])
 	},
+	created () {
+    this.ThisJs = new ThisJs(this)
+	},
 	mounted () {
 		self = this
 		// 是否记住密码设置
@@ -103,7 +106,8 @@ export default {
 			'CHANGE_FORMlOGIN_ACT',
 			'CHANGE_REMEMBERPASS_ACT',
 			'CHANGE_LIMIT_ACT',
-			'CHANGE_CLICKROUTE_ACT'
+			'CHANGE_CLICKROUTE_ACT',
+			'CHANGE_PUBKEY_ACT'
 		]),
 		/**
 		 * @param {记住密码值变化函数}
@@ -113,69 +117,13 @@ export default {
 			self.CHANGE_REMEMBERPASS_ACT(val)
 		},
 		/**
-		 * @param {过滤首位路由}
-		 * @param {筛选的路由表} pary
-		 */
-		filterFirstRoute (pary) {
-			let toRroute = {}
-			if (toRroute && Object.keys(toRroute).length > 1) {
-				return toRroute
-			} else {
-				pary.forEach((e) => {
-					e.children.length ? self.filterFirstRoute(e.children) : toRroute = e
-				})
-			}
-			return toRroute
-		},
-		/**
 		 * @param {登录确认}
 		 * @param {验证结果} formName
 		 */
 		submitForm (formName) {
 			self.$refs[formName].validate((valid) => {
 				if (valid) {
-					let obj = limit.filter(a => a.username === self.formLogin.user)[0]
-					// 路由懒加载
-					const _import = (r) => file => require.ensure([], () => file(require(`@/views${ r }.vue`)))
-					let firstR = {}
-					if (obj.password === self.formLogin.pass) {
-						resetRouter()
-						self.CHANGE_LIMIT_ACT([]) // 清空路由表
-						self.CHANGE_CLICKROUTE_ACT([]) // 清空点击过的列表
-						self.CHANGE_LIMIT_ACT(obj.limit) // 存放路由表
-						self.CHANGE_FORMlOGIN_ACT(self.formLogin) // 存放登录字段
-						self.CHANGE_TOKEN_ACT({ token: 'zhuanghongliang' }) // 存放token
-
-						let routers = []
-						unit.filterRouter(obj.limit, routers)
-						let allRouters = [
-							{
-								path: '/Home',
-								name: 'Home',
-								component: _import('/Home'),
-								mtea: {
-									parentName: '',
-									name: '',
-									requiresAuth: true,
-								},
-								children: routers
-							},
-							{ path: '*', redirect: '/NoFind/NoFind' },
-						]
-						router.addRoutes(allRouters)
-						firstR = self.filterFirstRoute(obj.limit) // 拿到首位路由
-						self.$nextTick(() => {
-							self.$router.push({ // 跳转到首位路由
-								path: firstR.link
-							})
-							self.CHANGE_CLICKROUTE_ACT({ link: firstR.link, name: firstR.name })
-						})
-					} else {
-						Notification.error({
-							title: '错误',
-							message: '该用户未注册！'
-						})
-					}
+					self.ThisJs.login(self.formLogin)
 				} else {
 					return false
 				}

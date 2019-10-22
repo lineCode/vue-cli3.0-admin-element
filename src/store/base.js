@@ -12,7 +12,9 @@ export default {
 		// 上个路由
 		lastRoute: '',
 		// 点击过的路由
-		clickRoute: []
+		clickRoute: [],
+		// 公钥
+		pubKey: ''
 	},
 	mutations: {
 		// 改变token
@@ -51,7 +53,11 @@ export default {
 					return cur
 				},[])
 			}
-		}
+		},
+		// 改变公钥
+		CHANGE_PUBKEY_MUT (state, value) {
+			state.pubKey = value
+		},
 	},
 	actions: {
 		CHANGE_TOKEN_ACT ({commit}, value) {
@@ -74,6 +80,9 @@ export default {
 		},
 		CHANGE_CLICKROUTE_ACT ({commit}, value) {
 			commit('CHANGE_CLICKROUTE_MUT', value)
+		},
+		CHANGE_PUBKEY_ACT ({commit}, value) {
+			commit('CHANGE_PUBKEY_MUT', value)
 		}
 	}
 }

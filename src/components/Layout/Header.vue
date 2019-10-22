@@ -5,14 +5,14 @@
 				后台管理系统
 			</div>
 			<ul class="header-move">
-				<li class="header-icon home">
+				<li class="header-icon home" @click="goHome">
 					<i class="iconfont">&#xe6a2;</i>
 				</li>
 				<li class="user-avata">
 					<img src="@/assets/logo.png" alt="">
-					<span>管理员</span>
+					<span>{{ base.formLogin.username }}</span>
 				</li>
-				<li class="header-icon exit">
+				<li class="header-icon exit" @click="exit">
 					<i class="iconfont">&#xe650;</i>
 				</li>
 			</ul>
@@ -21,13 +21,55 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+import router, { resetRouter } from '@/router.js'
 export default {
 	data () {
 		return {
 		}
 	},
+	computed: {
+		...mapState([
+			'base'
+		])
+	},
+	mounted () {
+		window.console.log(this.base)
+	},
 	methods: {
+		...mapActions([
+			'CHANGE_LIMIT_ACT',
+			'CHANGE_CLICKROUTE_ACT'
+		]),
+		goHome () {
+			this.$router.push({
+				path: '/Index/Index'
+			})
+		},
 		exit () {
+			resetRouter()
+			this.CHANGE_LIMIT_ACT([]) // 清空路由表
+			this.CHANGE_CLICKROUTE_ACT([]) // 清空点击过的列表
+			let routers = []
+			const _import = (r) => file => require.ensure([], () => file(require(`@/views${ r }.vue`)))
+			let allRouters = [
+				{
+					path: '/Home',
+					name: 'Home',
+					component: _import('/Home'),
+					mtea: {
+						parentName: '',
+						name: '',
+						requiresAuth: true,
+					},
+					children: routers
+				},
+				{ path: '*', redirect: '/NoFind/NoFind' },
+			]
+			router.addRoutes(allRouters)
+			this.$router.push({
+				path: '/'
+			})
 		}
 	}
 }
