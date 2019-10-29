@@ -133,11 +133,12 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #login{
 	position: relative;
 	height: 100%;
-	background: #f3f3f3;
+	// background: #f3f3f3;
+	background: linear-gradient(60deg, rgba(84, 58, 183, 0.8) 0%, rgba(0, 172, 193, 1) 100%);
 	.box{
 		position: absolute;
 		width: 400px;
@@ -152,6 +153,7 @@ export default {
 			}
 		}
 		.title-box{
+			color: #fff;
 			text-align: center;
 			font-size: 20px;
 			font-weight: 600;
@@ -159,7 +161,7 @@ export default {
 		}
 		// 表单样式
 		.form-box{
-			background: #fff;
+			// background: #fff;
 			border-radius: 8px;
 			padding: 20px;
 			.el-form-item{

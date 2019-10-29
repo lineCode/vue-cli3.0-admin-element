@@ -1,7 +1,7 @@
 <template>
 	<div id="header">
 		<div class="header-box">
-			<div class="header-title">
+			<div id="header-title" class="header-title">
 				后台管理系统
 			</div>
 			<ul class="header-move">

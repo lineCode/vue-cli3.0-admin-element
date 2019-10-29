@@ -34,16 +34,22 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. vuex
 3. less
 4. element.ui
-5. 
 
-## 项目进展
+## 项目要点
 
-1. App.vue                              整体模块
-2. Header.vue                           头部模块
-3. Aside.vue                            侧边模块
-4. Footer.vue                           底部模块
-5. Login.vue                            登陆模块
+1. jwt鉴权
+2. 根据用户权限动态生成路由
+3. 根据axios封装请求拦截和响应拦截及loading
+4. driver.js 引导页 (未完成)
+5. 小型聊天室 (未完成)
+6. Tinymce富文本 (未完成)
+7. 预览pdf (未完成)
 
+## 脚手架版本
+
+*vue-cli-3.0
+
+#### 由于域名在备案中,暂无线上预览地址 需要数据库以及TP6.0后端代码的call我
 
 ## 项目中的问题
 1. props 接收一个Number类型时会提示

@@ -232,7 +232,6 @@ export default {
 	},
 	created () {
 		this.ThisJs = new ThisJs(this)
-		window.console.log(limit)
 		this.$set(this, 'limitsData', limit)
 	},
 	computed: {

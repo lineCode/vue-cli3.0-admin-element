@@ -28,6 +28,8 @@
 let self = {}
 import Header from '@/components/Layout/Header' // 导入头部
 import Aside from '@/components/Layout/Aside' // 导入 侧边栏
+import "driver.js/dist/driver.min.css" // import driver.js css
+import Driver from 'driver.js'
 import { mapState } from 'vuex'
 export default {
   name: 'home',
@@ -38,7 +40,8 @@ export default {
   data () {
     return {
       // 侧边栏
-      menus: []
+      menus: [],
+			driver: null
     }
   },
   computed: {
@@ -52,6 +55,31 @@ export default {
   mounted () {
     self = this
     self.$set(self, 'menus', self.base.limit)
+    this.driver = new Driver({
+			className: 'scoped-class',
+			animate: true, // Animate while changing highlighted element
+      opacity: 0.75, // Background opacity (0 means only popovers and without overlay)
+      padding: 10, // Distance of element from around the edges
+      allowClose: true, // Whether clicking on overlay should close or not
+      overlayClickNext: false, // Should it move to next step on overlay click
+      doneBtnText: '完成', // Text on the final button
+      closeBtnText: '关闭', // Text on the close button for this step
+      nextBtnText: '下一步', // Next button text for this step
+      prevBtnText: '上一步' // Previous button text for this step
+		})
+		setTimeout(() => {
+			this.driver.defineSteps([
+				{
+					element: '#header-title',
+					popover: {
+						title: '首页',
+						description: '点击返回首页',
+						position: 'right'
+					}
+				}
+			])
+			this.driver.start()
+		}, 400)
   },
   methods: {
     clickTags (e) {

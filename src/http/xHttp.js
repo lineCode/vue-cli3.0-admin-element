@@ -1,6 +1,6 @@
 import axios from './xAxios'
-// let ip = 'http://localhost/'
-let ip = 'http://byu6999740001.my3w.com/vueAdmin/public/Index/'
+let ip = 'http://localhost/'
+// let ip = 'http://byu6999740001.my3w.com/vueAdmin/public/Index/'
 // http://byu6999740001.my3w.com/vueAdmin/public/Index/User/Index?name=&pageSize=10&pageCount=1
 
 export default{
