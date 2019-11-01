@@ -1,28 +1,25 @@
 # vue-cli3
 
-## Project setup
+## 项目截图
+
+<img src="./src/assets/login.png" alt="donate">
+<img src="./src/assets/index.png" alt="donate">
+<img src="./src/assets/pdf.png" alt="donate">
+<img src="./src/assets/tinymce.png" alt="donate">
+<img src="./src/assets/limit.png" alt="donate">
+<img src="./src/assets/updateLimit.png" alt="donate">
+
+## 开启项目
 ```
 yarn install
 ```
-
 ### Compiles and hot-reloads for development
 ```
 yarn run serve
 ```
-
 ### Compiles and minifies for production
 ```
 yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
 ```
 
 ### Customize configuration
