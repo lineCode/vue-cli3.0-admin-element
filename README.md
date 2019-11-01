@@ -1,7 +1,7 @@
 # vue-cli3
 
 ## 项目截图
-![](./public/image/login.png)
+![](public/image/login.png)
 <img src="./public/image/login.png" alt="donate">
 <img src="./src/assets/index.png" alt="donate">
 <img src="./src/assets/pdf.png" alt="donate">
