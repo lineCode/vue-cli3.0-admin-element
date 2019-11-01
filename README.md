@@ -1,7 +1,7 @@
 # vue-cli3
 
 ## 项目截图
-![登录截图]public/index.png
+![登录截图](public/index.png)
 <img src="./src/assets/index.png" alt="donate">
 <img src="./src/assets/pdf.png" alt="donate">
 <img src="./src/assets/tinymce.png" alt="donate">
