@@ -1,8 +1,7 @@
 # vue-cli3
 
 ## 项目截图
-![](https://github.com/hl834818165/vue-cli3.0-admin-element/tree/master/public/image/login.png)
-<img src="./public/image/login.png" alt="donate">
+![登录截图](https://github.com/hl834818165/vue-cli3.0-admin-element/tree/master/public/image/login.png)
 <img src="./src/assets/index.png" alt="donate">
 <img src="./src/assets/pdf.png" alt="donate">
 <img src="./src/assets/tinymce.png" alt="donate">
