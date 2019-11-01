@@ -2,7 +2,7 @@
 
 ## 项目截图
 
-<img src="" alt="donate">
+<img src="./public/image/login.png" alt="donate">
 <img src="./src/assets/index.png" alt="donate">
 <img src="./src/assets/pdf.png" alt="donate">
 <img src="./src/assets/tinymce.png" alt="donate">
