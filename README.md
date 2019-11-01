@@ -34,16 +34,18 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. vuex
 3. less
 4. element.ui
+5. vue-pdf
+6. driver.js
+7. tinymce
 
 ## 项目要点
 
 1. jwt鉴权
 2. 根据用户权限动态生成路由
 3. 根据axios封装请求拦截和响应拦截及loading
-4. driver.js 引导页 (未完成)
-5. 小型聊天室 (未完成)
-6. Tinymce富文本 (未完成)
-7. 预览pdf (未完成)
+4. driver.js 引导页 (有bug)
+5. Tinymce富文本
+6. 预览pdf
 
 ## 脚手架版本
 
@@ -66,7 +68,7 @@ module.exports = {
   assetsDir: 'static'
 }
 
-4. 切换用户之后久的路由未清除
+4. 切换用户之后旧的路由未清除
 
 export function resetRouter () {
   const newRouter = createRouter()

@@ -28,7 +28,6 @@
 let self = {}
 import Header from '@/components/Layout/Header' // 导入头部
 import Aside from '@/components/Layout/Aside' // 导入 侧边栏
-import "driver.js/dist/driver.min.css" // import driver.js css
 import Driver from 'driver.js'
 import { mapState } from 'vuex'
 export default {
@@ -66,20 +65,18 @@ export default {
       closeBtnText: '关闭', // Text on the close button for this step
       nextBtnText: '下一步', // Next button text for this step
       prevBtnText: '上一步' // Previous button text for this step
-		})
-		setTimeout(() => {
-			this.driver.defineSteps([
-				{
-					element: '#header-title',
-					popover: {
-						title: '首页',
-						description: '点击返回首页',
-						position: 'right'
-					}
-				}
-			])
-			this.driver.start()
-		}, 400)
+    })
+    this.driver.defineSteps([
+      {
+        element: '#home',
+        popover: {
+          title: '首页',
+          description: '点击返回首页',
+          position: 'left'
+        }
+      }
+    ])
+    this.driver.start()
   },
   methods: {
     clickTags (e) {

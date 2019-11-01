@@ -5,7 +5,7 @@
 				后台管理系统
 			</div>
 			<ul class="header-move">
-				<li class="header-icon home" @click="goHome">
+				<li id="home" class="header-icon home" @click="goHome">
 					<i class="iconfont">&#xe6a2;</i>
 				</li>
 				<li class="user-avata">
@@ -34,7 +34,6 @@ export default {
 		])
 	},
 	mounted () {
-		window.console.log(this.base)
 	},
 	methods: {
 		...mapActions([

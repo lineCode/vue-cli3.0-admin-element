@@ -13,22 +13,46 @@
     "icon": "&#xe640;",
     "iconSize": "24",
     "level": 1,
-    "sort": 2,
+    "sort": 3,
     "state": 1,
-    "link": "/Suggest/Suggest",
-    "linkName": "Suggest",
-    "name": "建议与诉求",
+    "link": "/Media/Media",
+    "linkName": "Media",
+    "name": "采集照片",
     "children": []
 },
 {
     "icon": "&#xe640;",
     "iconSize": "24",
     "level": 1,
-    "sort": 3,
+    "sort": 10,
     "state": 1,
-    "link": "/Media/Media",
-    "linkName": "Media",
-    "name": "采集照片",
+    "link": "/Editor",
+    "linkName": "Editor",
+    "name": "富文本",
+    "children": [
+        {
+            "icon": "&#xe640;",
+            "iconSize": "24",
+            "level": 2,
+            "sort": 1,
+            "state": 1,
+            "link": "/Editor/Tinymce/Tinymce",
+            "linkName": "Tinymce",
+            "name": "Tinymce",
+            "parentName": "富文本",
+            "children": []
+        }
+    ]
+},
+{
+    "icon": "&#xe640;",
+    "iconSize": "24",
+    "level": 1,
+    "sort": 11,
+    "state": 1,
+    "link": "/Pdf/Pdf",
+    "linkName": "Pdf",
+    "name": "预览PDF",
     "children": []
 },
 {
