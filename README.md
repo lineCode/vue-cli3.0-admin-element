@@ -2,7 +2,7 @@
 
 ## 项目截图
 
-<img src="./src/assets/login.png" alt="donate">
+<img src="https://github.com/hl834818165/vue-cli3.0-admin-element/blob/master/src/assets/login.png" alt="donate">
 <img src="./src/assets/index.png" alt="donate">
 <img src="./src/assets/pdf.png" alt="donate">
 <img src="./src/assets/tinymce.png" alt="donate">
